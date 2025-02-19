@@ -9,6 +9,7 @@ import SwiftUI
 
 struct rideRequestView: View {
     @State private var selectedRideType: RideType = .uberX
+    @EnvironmentObject var locationViewModel: LocationSearchVM
     var body: some View {
       
             VStack(){
@@ -24,13 +25,15 @@ struct rideRequestView: View {
                         HStack{
                             Text("Current Location").font(.system(size: 16,weight: .semibold)).foregroundColor(.gray)
                             Spacer()
-                            Text("01:34 AM").font(.system(size: 14,weight: .semibold)).foregroundColor(.gray)
+                            Text(locationViewModel.pickUpTime ?? "").font(.system(size: 14,weight: .semibold)).foregroundColor(.gray)
                         }
                         .padding(.bottom,10)
                         HStack{
-                            Text("cofee shoop").font(.system(size: 16,weight: .semibold))
+                            if let location = locationViewModel.selectedCoordinateLocation{
+                                Text(location.title).font(.system(size: 16,weight: .semibold))
+                            }
                             Spacer()
-                            Text("01:54 AM").font(.system(size: 14,weight: .semibold)).foregroundColor(.gray)
+                            Text(locationViewModel.dropOutTime ?? "").font(.system(size: 14,weight: .semibold)).foregroundColor(.gray)
                         }
                         
                     }.padding(.leading,8)
@@ -47,7 +50,7 @@ struct rideRequestView: View {
                             VStack(spacing: 8){
                                 Image(rideType.imageName).resizable().scaledToFit()
                                 Text(rideType.description).font(.system(size: 14,weight: .semibold))
-                                Text("$23").font(.system(size: 14,weight: .semibold))
+                                Text(locationViewModel.computeRidePrice(forType: rideType).toCurrency()).font(.system(size: 14,weight: .semibold))
                             }
                             .padding(8)
                             .frame(width: 112,height: 140).foregroundColor(Color(rideType == selectedRideType ? .white : .black)).background(Color(rideType == selectedRideType ? .systemRed : .systemGroupedBackground

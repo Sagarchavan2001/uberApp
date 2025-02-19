@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7801FE502D64A07A00BA2E72 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801FE4F2D64A07A00BA2E72 /* Double.swift */; };
 		7824EE822D19666C00B287D3 /* MapViewActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824EE812D19666C00B287D3 /* MapViewActionButton.swift */; };
 		7824EE842D19752A00B287D3 /* Start&endLocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824EE832D19752A00B287D3 /* Start&endLocationSearchView.swift */; };
 		7824EE862D197E4D00B287D3 /* LocationSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824EE852D197E4D00B287D3 /* LocationSearchCellView.swift */; };
@@ -21,9 +22,11 @@
 		78C5125E2D1849B200711F2E /* UberAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5125D2D1849B200711F2E /* UberAppApp.swift */; };
 		78C512622D1849B400711F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C512612D1849B400711F2E /* Assets.xcassets */; };
 		78C512652D1849B400711F2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C512642D1849B400711F2E /* Preview Assets.xcassets */; };
+		78E14E712D659BF2001F9CE8 /* uberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E14E702D659BF2001F9CE8 /* uberLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7801FE4F2D64A07A00BA2E72 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		7824EE812D19666C00B287D3 /* MapViewActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewActionButton.swift; sourceTree = "<group>"; };
 		7824EE832D19752A00B287D3 /* Start&endLocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start&endLocationSearchView.swift"; sourceTree = "<group>"; };
 		7824EE852D197E4D00B287D3 /* LocationSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchCellView.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		78C5125D2D1849B200711F2E /* UberAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberAppApp.swift; sourceTree = "<group>"; };
 		78C512612D1849B400711F2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78C512642D1849B400711F2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		78E14E702D659BF2001F9CE8 /* uberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uberLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 			children = (
 				78B33C822D2295E70099A779 /* MapViewState.swift */,
 				784F77182D259A4700ACBBB7 /* RideRequest.swift */,
+				78E14E702D659BF2001F9CE8 /* uberLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 		78C5126E2D185E9700711F2E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7801FE4F2D64A07A00BA2E72 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				784F77192D259A4700ACBBB7 /* RideRequest.swift in Sources */,
 				7824EE862D197E4D00B287D3 /* LocationSearchCellView.swift in Sources */,
 				7824EE822D19666C00B287D3 /* MapViewActionButton.swift in Sources */,
+				7801FE502D64A07A00BA2E72 /* Double.swift in Sources */,
 				78B33C832D2295E70099A779 /* MapViewState.swift in Sources */,
 				78B91AFC2D1FAD9100C73EE0 /* locationSearchVM.swift in Sources */,
 				78888E4A2D188F5100F7445F /* LocationManager.swift in Sources */,
@@ -276,6 +283,7 @@
 				7824EE842D19752A00B287D3 /* Start&endLocationSearchView.swift in Sources */,
 				78888E482D188A8400F7445F /* UberMapViewRepresentable.swift in Sources */,
 				78B33C862D22AA770099A779 /* rideRequestView.swift in Sources */,
+				78E14E712D659BF2001F9CE8 /* uberLocation.swift in Sources */,
 				78888E462D1889D400F7445F /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

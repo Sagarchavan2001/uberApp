@@ -25,7 +25,7 @@ struct MapViewActionButton: View {
         switch state{
         case .noInput: print("DEBUG : NO INPUT")
         case .serchingForLocation: mapState = .noInput
-            viewModel.selectLocationCoordinate = nil
+            viewModel.selectedCoordinateLocation = nil
         case .locationSelected: mapState = .noInput
         }
     }

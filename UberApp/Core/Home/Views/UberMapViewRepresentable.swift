@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 struct UberMapViewRepresentable : UIViewRepresentable{
    let mapView = MKMapView()
-    let locationManager = LocationManager()
+    //let locationManager = LocationManager.shared
     @Binding var  mapstate:MapViewState
     @EnvironmentObject var locationViewModel : LocationSearchVM
     
@@ -30,7 +30,7 @@ struct UberMapViewRepresentable : UIViewRepresentable{
         case .locationSelected:
             break
         case .serchingForLocation:
-            if let coordinate = locationViewModel.selectLocationCoordinate{
+            if let coordinate = locationViewModel.selectedCoordinateLocation?.coordinate{
                 
                 context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
                 context.coordinator.configPolyline(withDestinationCoordinat: coordinate)
@@ -76,29 +76,13 @@ extension UberMapViewRepresentable{
         }
         func configPolyline(withDestinationCoordinat coordinate : CLLocationCoordinate2D){
             guard let userLocationCoordinate = self.userLocationCoordinate else {return}
-            getDestinationRoute(from: userLocationCoordinate, to: coordinate) { route in
+            parent.locationViewModel.getDestinationRoute(from: userLocationCoordinate, to: coordinate) { route in
                 self.parent.mapView.addOverlay(route.polyline)
                 let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect,edgePadding: .init(top: 64, left: 32, bottom: 500, right: 32))
                 self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
             }
         }
-        func getDestinationRoute(from userlocation : CLLocationCoordinate2D,to destination : CLLocationCoordinate2D, completion: @escaping(MKRoute)-> Void){
-            let userPlaceMark = MKPlacemark(coordinate: userlocation)
-            let destinationPlacemark = MKPlacemark(coordinate: destination)
-            let request = MKDirections.Request()
-            request.source = MKMapItem(placemark: userPlaceMark)
-            request.destination = MKMapItem(placemark: destinationPlacemark)
-            let direction = MKDirections(request: request)
-            direction.calculate { response, error in
-                
-                if let error = error{
-                    print(error.localizedDescription)
-                    return
-                }
-                guard let route = response?.routes.first else{return}
-                completion(route)
-            }
-        }
+       
         func clearMapViewAndRecenterUserLocation(){
             parent.mapView.removeAnnotations(parent.mapView.annotations)
             parent.mapView.removeOverlays(parent.mapView.overlays)
